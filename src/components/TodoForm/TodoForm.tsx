@@ -1,4 +1,5 @@
 import { useForm, SubmitHandler } from "react-hook-form"
+import { toast } from "react-hot-toast"
 
 import { useAppDispatch } from "@/hooks"
 import { addTask } from "@/redux"
@@ -10,9 +11,13 @@ import { TFormData } from "./types"
 export const TodoForm: React.FC = () => {
   const dispatch = useAppDispatch()
 
-  const { register, handleSubmit,formState: { errors } } = useForm<TFormData>({ mode: 'onChange',})
+  const { register, reset, handleSubmit,formState: { errors } } = useForm<TFormData>({ mode: 'onChange',})
   
-  const onSubmit: SubmitHandler<TFormData> = (data) =>  dispatch(addTask(data))
+  const onSubmit: SubmitHandler<TFormData> = (data) =>  {
+    dispatch(addTask(data))
+    toast.success("New task was added")
+    reset()
+  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="max-md:max-w-[480px] xl:w-full mx-auto">

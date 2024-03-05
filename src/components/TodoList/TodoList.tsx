@@ -1,3 +1,5 @@
+import { toast } from "react-hot-toast"
+
 import { useAppDispatch, useAppSelector } from "@/hooks"
 import { selectFilteredTodos,deleteTask, toggleCompleted } from "@/redux"
 
@@ -12,6 +14,12 @@ export const TodoList: React.FC = () => {
 
   const handleTaskStatus = (task: TUserTodo): void => {
     dispatch(toggleCompleted({...task, completed: !task.completed}))
+    toast.success("Task's status was changed")
+  }
+
+  const handleTaskDelete = (id:number):void => {
+    dispatch(deleteTask(id))
+    toast.error("Task was removed")
   }
 
   return (
@@ -27,7 +35,7 @@ export const TodoList: React.FC = () => {
                 {task.completed ? "completed" : 'in progress'}
               </span>
                 
-              <button onClick={()=>dispatch(deleteTask(task.id))} className="text-red-500 hover:text-red-800 focus-within:text-red-800 transition-colors" aria-label="deletetask">
+              <button onClick={()=>handleTaskDelete(task.id)} className="text-red-500 hover:text-red-800 focus-within:text-red-800 transition-colors" aria-label="deletetask">
                 <TrashIcon className="size-[20px]"/>
               </button>
             </div>
