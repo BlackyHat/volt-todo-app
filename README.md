@@ -15,12 +15,14 @@ Project structure:
   - Adding a new record.
   - A new record is added if its length is less than or equal to N characters.
   - Display a list of added records.
-  - Switching the status of a record Completed / Not completed when clicking on its name.
+  - Switching the status of a record Completed / Not completed when clicking on
+    its name.
   - Filtering by type (all, completed, current).
   - Display counter of completed and uncompleted tasks.
   - Use a storage (Redux).
   - For styling you can use any lib/framework, but remember UI matters.
-  - use this linter https://github.com/wemake-services/wemake-frontend-styleguide.
+  - use this linter
+    https://github.com/wemake-services/wemake-frontend-styleguide.
 
 ##
 
@@ -35,7 +37,7 @@ Project structure:
 ![image](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
 ![image](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
 
-## Installation and Usage ⚙️ 🚀 
+## Installation and Usage ⚙️ 🚀
 
 To get start application, follow these steps:
 
@@ -44,8 +46,7 @@ To get start application, follow these steps:
 2. **Install the dependencies**: Open a terminal in the root of the project and
    run `npm install` or `yarn install` to install all required dependencies.
 3. **Run the application**: Run the `npm run dev` or `yarn dev` command to run
-   the project on the local server.
-``
+   the project on the local server. ``
 
 ## The web application using the following technologies and libraries: ⚙️🖥️
 
@@ -59,5 +60,6 @@ To get start application, follow these steps:
 ## Stay in touch 🤠 💼
 
 - Author - [Oleksandr Podoliako](https://github.com/BlackyHat)
-- Linkedin - [http://linkedin.com/in/oleksandr-vp](http://linkedin.com/in/oleksandr-vp)
+- Linkedin -
+  [http://linkedin.com/in/oleksandr-vp](http://linkedin.com/in/oleksandr-vp)
 - Telegram - [@blackhatty](https://t.me/blackhatty)

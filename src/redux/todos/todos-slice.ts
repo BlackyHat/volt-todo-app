@@ -1,34 +1,39 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from '@reduxjs/toolkit'
 
-import { TUserTodo } from "@/types"
+import { TUserTodo } from '@/types'
 
 type TodosState = {
-  items: TUserTodo[]
+  todos: TUserTodo[]
 }
 
-const initialState: TodosState = { items: [] }
+const initialState: TodosState = { 'todos': [] }
 
 const tasksSlice = createSlice({
-  name: "todos",
+  'name': 'todos',
   initialState,
-  reducers: {
-    addTask: (state, action) => {state.items.push({...action.payload, id: Date.now(), completed:false})},
+  'reducers': {
+    'addTask': (state, action) => {
+      state.todos.push({
+        ...action.payload,
+        'id': Date.now(),
+        'completed': false,
+      })
+    },
 
-    deleteTask: (state, action) => {
-      const index = state.items.findIndex(
-        (todo) => todo.id === action.payload
-      )
-      state.items.splice(index, 1)},
+    'deleteTask': (state, action) => {
+      const index = state.todos.findIndex((todo) => todo.id === action.payload)
+      state.todos.splice(index, 1)
+    },
 
-    toggleCompleted: (state, action) => {
-      const index = state.items.findIndex(
-        (todo) => todo.id === action.payload.id
+    'toggleCompleted': (state, action) => {
+      const index = state.todos.findIndex(
+        (todo) => todo.id === action.payload.id,
       )
-      state.items.splice(index, 1, action.payload)
-    }
+      state.todos.splice(index, 1, action.payload)
+    },
   },
 })
 
-export const { addTask, deleteTask,toggleCompleted } = tasksSlice.actions
+export const { addTask, deleteTask, toggleCompleted } = tasksSlice.actions
 
 export const tasksReducer = tasksSlice.reducer

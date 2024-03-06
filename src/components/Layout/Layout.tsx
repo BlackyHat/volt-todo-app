@@ -1,8 +1,10 @@
-import { Header } from "../Header"
+import React from 'react'
 
-import { LayoutProps } from "./types"
+import { Header } from '../Header'
 
-export const Layout: React.FC<LayoutProps> = ({children}) => {
+import { LayoutProps } from './types'
+
+export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
       <Header />
