@@ -5,6 +5,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:tailwindcss/recommended',
     '@wemake-services/typescript/recommended',
     '@wemake-services/javascript',
   ],
@@ -15,8 +16,9 @@ module.exports = {
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
-      ],
-      'unicorn/filename-case': 'off',
-      'no-shadow': 'off'
+    ],
+    'unicorn/filename-case': 'off',
+    'no-shadow': 'off',
+    'max-len': 'off',
   },
-};
+}

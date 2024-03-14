@@ -1,11 +1,10 @@
-import { FieldErrors, UseFormRegister } from 'react-hook-form'
-import { TFormData } from '../TodoForm/types'
+import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form'
 
 export type FormFieldProps = {
-  type:string
+  type: string
   label: string
   placeholder: string
   name: string
-  register: UseFormRegister<TFormData>
+  register: UseFormRegister<FieldValues>
   errors: FieldErrors
 }

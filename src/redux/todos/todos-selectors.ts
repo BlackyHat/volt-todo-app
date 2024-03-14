@@ -1,9 +1,10 @@
 import type { RootState } from '../store'
 
-import { FilterStatus, TUserTodo } from '@/types'
+import { TFilterStatus, TUserTodo } from '@/types'
 
-export const selectFilterStatus =
-(state: RootState): FilterStatus => state.filter.status
+export const selectFilterStatus = (state: RootState): TFilterStatus => {
+  return state.filter.status
+}
 
 export const selectTodos = (state: RootState): TUserTodo[] => state.todos.todos
 
@@ -12,10 +13,10 @@ export const selectFilteredTodos = (state: RootState): TUserTodo[] => {
   const filterStatusValue = state.filter.status
 
   switch (filterStatusValue) {
-    case FilterStatus.Active: {
+    case TFilterStatus.Active: {
       return allTodos.filter((todo) => !todo.completed)
     }
-    case FilterStatus.Completed: {
+    case TFilterStatus.Completed: {
       return allTodos.filter((todo) => todo.completed)
     }
     default: {

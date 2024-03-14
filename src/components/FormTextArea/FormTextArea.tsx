@@ -13,8 +13,7 @@ export const FormTextArea: React.FC<FormTextAreaProps> = ({
 
     <label
       htmlFor={name}
-      className="relative mb-6 flex flex-col text-sm text-slate-500
-      md:text-base"
+      className="relative mb-6 flex flex-col text-sm text-slate-500 md:text-base"
     >
       <span className="mb-2 font-light tracking-wide md:mb-1">
         {label}
@@ -25,9 +24,7 @@ export const FormTextArea: React.FC<FormTextAreaProps> = ({
         {...register('description', { 'required': true, 'maxLength': 200 })}
         aria-invalid={errors.description ? 'true' : 'false'}
         placeholder={placeholder}
-        className={`relative mb-5 h-40 w-full resize-none rounded-[10px] 
-        border-[1px] border-greyBorder p-4 text-left text-sm font-light 
-        transition focus:outline-none focus-visible:border-primary 
+        className={`relative mb-5 h-40 w-full resize-none rounded-[10px] border border-greyBorder p-4 text-left text-sm font-light transition focus:outline-none focus-visible:border-primary 
         ${errors.description ? 'border-red-500' : ''}`}
       />
 

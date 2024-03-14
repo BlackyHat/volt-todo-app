@@ -1,15 +1,13 @@
 import React from 'react'
-import { useForm, SubmitHandler } from 'react-hook-form'
+import { useForm, SubmitHandler, FieldValues } from 'react-hook-form'
 import { toast } from 'react-hot-toast'
+
+import { FormTextArea, FormField } from '@/components'
 
 import { useAppDispatch } from '@/hooks'
 import { addTask } from '@/redux'
 
 import PlusIcon from '@assets/icons/icon-plus.svg?react'
-
-import { TFormData } from './types'
-import { FormTextArea } from '../FormTextArea'
-import { FormField } from '../FormField'
 
 export const TodoForm: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -19,9 +17,9 @@ export const TodoForm: React.FC = () => {
     reset,
     handleSubmit,
     'formState': { errors },
-  } = useForm<TFormData>({ 'mode': 'onChange' })
+  } = useForm<FieldValues>({ 'mode': 'onChange' })
 
-  const onSubmit: SubmitHandler<TFormData> = (data) => {
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
     dispatch(addTask(data))
     toast.success('New task was added')
     reset()
@@ -33,7 +31,7 @@ export const TodoForm: React.FC = () => {
       className="mx-auto max-md:max-w-[480px] xl:w-full"
     >
       <FormField
-        label='Todo title:'
+        label="Todo title:"
         type="text"
         placeholder="Add todo title"
         name="todo-title"
@@ -42,7 +40,7 @@ export const TodoForm: React.FC = () => {
       />
 
       <FormTextArea
-        label='Todo description:'
+        label="Todo description:"
         placeholder="Add todo description..."
         name="todo-description"
         register={register}
@@ -51,11 +49,7 @@ export const TodoForm: React.FC = () => {
 
       <button
         type="submit"
-        className="mx-auto flex w-full max-w-80 items-center
-        justify-center gap-4 rounded-full border border-primary
-        px-6 py-2 font-medium capitalize text-secondary
-        group-invalid:pointer-events-none
-        group-invalid:opacity-30"
+        className="mx-auto flex w-full max-w-80 items-center justify-center gap-4 rounded-full border border-primary px-6 py-2 font-medium capitalize text-secondary group-invalid:pointer-events-none group-invalid:opacity-30"
       >
         Add new todo
         <PlusIcon className="size-6 rounded-full" />
